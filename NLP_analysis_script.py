@@ -97,9 +97,9 @@ df["cleaned_quote"] = df["quote"].apply(clean_text)
 df.to_csv("cleaned_quotes.csv", index=False)
 
 
-# =============================================================================
+# ==========================================
 # 2) HYPOTHESIS 1 — Most frequent motivational words 
-# =============================================================================
+# =======================
 """
 - Filter tokens to motivational/positive
 
@@ -131,9 +131,9 @@ for word, count in h1_freq.most_common(20):
     print(f"{word}: {count}")
 
 
-# =============================================================================
+# ===============================
 # 3) HYPOTHESIS 2 — Second-person words in inspirational quotes
-# =============================================================================
+# =================
 """
 Question:
 - Do quotes tagged as “inspirational” use second-person language more often?
@@ -159,9 +159,9 @@ print(f"Second-person count: {second_person_count} out of {total_insp_tokens} to
       f"({share:.2f}% of inspirational tokens).")
 
 
-# =============================================================================
+# =============
 # 4) HYPOTHESIS 3 — Emotional word usage by author
-# =============================================================================
+# ===================
 """
 Question:
 - Which authors most frequently use emotional language?
@@ -206,9 +206,9 @@ for author, counts in ranked_authors:
     print(f"{author}: {counts}")
 
 
-# =============================================================================
+# ==================
 # 5) HYPOTHESIS 4 — Most common bigrams and trigrams
-# =============================================================================
+# ====================
 """
 Question:
 - What common 2- and 3-word phrases occur across the corpus?
@@ -222,22 +222,22 @@ trigrams = list(zip(all_tokens, islice(all_tokens, 1, None), islice(all_tokens, 
 top_bigrams = Counter(bigrams).most_common(10)
 top_trigrams = Counter(trigrams).most_common(10)
 
-print("\n========================================================")
+print("\n=====================")
 print("H4: Top 10 bigrams")
-print("========================================================")
+print("======================")
 for (w1, w2), c in top_bigrams:
     print(f"{w1} {w2}: {c}")
 
-print("\n========================================================")
+print("\n========================")
 print("H4: Top 10 trigrams")
-print("========================================================")
+print("======================")
 for (w1, w2, w3), c in top_trigrams:
     print(f"{w1} {w2} {w3}: {c}")
 
 
-# =============================================================================
+# =======================
 # 6) HYPOTHESIS 5 — Vocabulary diversity by author (top 5 quoted)
-# =============================================================================
+# ============================
 """
 Question:
 - How does vocabulary variety differ across the most quoted authors?
