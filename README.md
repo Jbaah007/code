@@ -70,4 +70,3 @@ pip install pandas requests beautifulsoup4 lxml
 ---
 
 Project prepared for **DCS 625 – Web Data Extraction and Natural Language Processing**
-Final submission date: August 08, 2025
