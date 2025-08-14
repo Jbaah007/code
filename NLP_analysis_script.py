@@ -97,9 +97,9 @@ df["cleaned_quote"] = df["quote"].apply(clean_text)
 df.to_csv("cleaned_quotes.csv", index=False)
 
 
-# ==========================================
+# ===========
 # 2) HYPOTHESIS 1 — Most frequent motivational words 
-# =======================
+# ========
 """
 - Filter tokens to motivational/positive
 
@@ -124,14 +124,14 @@ motivational_tokens = [t for t in all_tokens if t in motivational_words]
 
 # Count and display the most common motivational words
 h1_freq = Counter(motivational_tokens)
-print("\n========================================================")
+print("\n=========")
 print("H1: Top Motivational Words (in-code filter)")
-print("========================================================")
+print("=========")
 for word, count in h1_freq.most_common(20):
     print(f"{word}: {count}")
 
 
-# ===============================
+# ===============
 # 3) HYPOTHESIS 2 — Second-person words in inspirational quotes
 # =================
 """
@@ -152,9 +152,9 @@ second_person_count = sum(1 for w in inspirational_tokens if w in second_person_
 total_insp_tokens = len(inspirational_tokens)
 share = (second_person_count / total_insp_tokens) * 100 if total_insp_tokens else 0.0
 
-print("\n========================================================")
+print("\n==============")
 print("H2: Second-person usage in 'inspirational' quotes")
-print("========================================================")
+print("================")
 print(f"Second-person count: {second_person_count} out of {total_insp_tokens} tokens "
       f"({share:.2f}% of inspirational tokens).")
 
@@ -199,9 +199,9 @@ ranked_authors = sorted(
     reverse=True
 )[:5]
 
-print("\n========================================================")
+print("\n==========")
 print("H3: Top authors by emotional language (positive + negative)")
-print("========================================================")
+print("==========")
 for author, counts in ranked_authors:
     print(f"{author}: {counts}")
 
